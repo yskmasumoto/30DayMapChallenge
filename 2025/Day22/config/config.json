@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Geographic Information on the Kashmir Conflict Zone",
+        "fig_size": [
+            12,
+            10
+        ],
+        "xlim": [
+            70.0,
+            83.0
+        ],
+        "ylim": [
+            30.0,
+            37.5
+        ],
+        "xticks": [],
+        "yticks": [],
+        "countries": [
+            {
+                "name": "Pakistan",
+                "color": "#038F3F"
+            },
+            {
+                "name": "India",
+                "color": "#46AA08"
+            },
+            {
+                "name": "China",
+                "color": "#ADFF2F"
+            }
+        ],
+        "output": "./img/kashmir_focus_map.png"
+    }
+]
