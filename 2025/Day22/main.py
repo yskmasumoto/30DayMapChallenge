@@ -12,6 +12,11 @@ from rasterio.plot import show
 
 
 def create_map(cfg: Config):
+    """
+    地図を作成する関数
+    Args:
+        cfg (Config): 地図作成の設定情報を持つConfigオブジェクト
+    """
     # ---------------------------------------------------------
     # 1. 環境変数からパスを取得
     # ---------------------------------------------------------
@@ -76,7 +81,7 @@ def create_map(cfg: Config):
         path_effects=lakes_effect,
     )
 
-    # (3) 河川 (ネオン発光)
+    # (3) 河川
     rivers_effect = [
         pe.Stroke(linewidth=4, foreground="cyan", alpha=0.4),
         pe.Normal(),
@@ -113,16 +118,16 @@ def create_map(cfg: Config):
     # ---------------------------------------------------------
     # 7. 見た目の調整
     # ---------------------------------------------------------
-    # タイトル設定 (フォントがあれば指定したいが、なければサイズと色で勝負)
+    # タイトル設定
     plt.title(
         cfg.title,
         fontsize=18,
         pad=20,
-        color="white",  # 背景が黒なので白文字
+        color="white",
         fontweight="bold",
     )
 
-    # 軸ラベル削除 (コンフィグで空リスト指定されていますが、念のため非表示設定)
+    # 軸ラベル削除
     ax.set_xticks(cfg.xticks)
     ax.set_yticks(cfg.yticks)
 
@@ -171,7 +176,6 @@ def create_map(cfg: Config):
     # ---------------------------------------------------------
     # 8. 保存
     # ---------------------------------------------------------
-    # facecolorを指定して、図の外側の余白も黒くする
     plt.savefig(cfg.output, dpi=300, bbox_inches="tight", facecolor="#1a1a1a")
     print(f"地図を保存しました: {cfg.output}")
 
